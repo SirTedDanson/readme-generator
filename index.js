@@ -1,12 +1,9 @@
-// TODO: Include packages needed for this application
+// Required packages needed for application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadme = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
-// const questions = [];
-
-// TODO: Create a function to write README file
+// Writes data to a README.md file in the dist/ folder
 const writeToFile = readmeInfo => {
   return new Promise((resolve, reject) => {
     fs.writeFile('./dist/README.md', readmeInfo, err => {
@@ -23,8 +20,8 @@ const writeToFile = readmeInfo => {
   });
 };
 
-// TODO: Create a function to initialize app
-const init = () => {
+// Gather necessary user input data with Inquirer for README generation
+const readmePrompts = () => {
   console.log(`
 ===============
 Create a README
@@ -32,6 +29,11 @@ Create a README
 `);
   return inquirer
     .prompt([
+      {
+        type: 'input',
+        name: 'repo',
+        message: 'What is the name of the repository?'
+      },
       {
         type: 'input',
         name: 'title',
@@ -56,7 +58,7 @@ Create a README
         type: 'list',
         name: 'contribute',
         message: 'Provide guidelines for contributing',
-        choices: ['Contributor Covenant', 'Custom']
+        choices: ['Contributor Covenant (Industry Standard)', 'Custom']
       },
       {
         type: 'input',
@@ -79,7 +81,12 @@ Create a README
         type: 'list',
         name: 'license',
         message: 'Choose a license',
-        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+        choices: ['NO LICENSE', 'Apache License 2.0', 'Boost Software License 1.0', 'GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'MIT License', 'Mozilla Public License 2.0']
+      },
+      {
+        type: 'input',
+        name: 'author',
+        message: 'Who is the primary contact for this project?'
       },
       {
         type: 'input',
@@ -90,12 +97,12 @@ Create a README
         type: 'input',
         name: 'email',
         message: 'What is the associated email address?'
-      },
+      }
     ]);
 };
 
 // Function call to initialize app
-init()
+readmePrompts()
   .then(data => {
     return generateReadme(data);
   })
