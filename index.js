@@ -3,8 +3,10 @@ const inquirer = require('inquirer');
 const generateReadme = require('./src/markdown-template.js');
 const writeToFile = require('./utils/generate-file.js');
 
+// =========================================================================================
 // Gather necessary user input data with Inquirer for README generation
-const readmePrompts = () => {
+// Initial function for building the user input data object
+const promptStart = () => {
   console.log(`
 ===============
 Create a README
@@ -66,7 +68,7 @@ Create a README
       {
         type: 'input',
         name: 'installation',
-        message: 'Provide instructions for installation:',
+        message: 'Provide instructions for installation (default list format):',
         validate: installationInput => {
           if (installationInput) {
             return true;
@@ -76,10 +78,52 @@ Create a README
           }
         }
       },
+    ]);
+};
+
+// Seperate inquirer function for building installation steps array
+const installSteps = (data) => {
+
+  return inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'installStep',
+        message: '(Type EXIT if finished with insallation instructions) Next Step:',
+        validate: installStepInput => {
+          if (installStepInput) {
+            return true;
+          } else {
+            console.log('Please provide the next installation step!');
+            return false;
+          }
+        }
+      },
+    ])
+    .then(installStepData => {
+      if (!data.installSteps) {
+        data.installSteps = [];
+      }
+      if (installStepData.installStep != 'EXIT') {
+        data.installSteps.push(installStepData)
+        console.log(data);
+        return installSteps(data)
+      } else {
+        return data;
+      }
+    })
+}
+
+// Bridge question between building two arrays with steps has its own function
+const usageQuestion = (data) => {
+  console.log(data)
+  console.log('inside usageQuestion')
+  return inquirer
+    .prompt([
       {
         type: 'input',
         name: 'usage',
-        message: 'Provide instructions for use:',
+        message: 'Provide instructions for use (default list format):',
         validate: usageInput => {
           if (usageInput) {
             return true;
@@ -88,7 +132,54 @@ Create a README
             return false;
           }
         }
+      }
+    ])
+    .then(usageList => {
+      newData = { ...data, ...usageList }
+      console.log(newData);
+      return newData;
+    })
+};
+
+// Seperate inquirer function for building usage steps array
+const usageSteps = data => {
+
+  if (!data.usageSteps) {
+    data.usageSteps = [];
+  }
+  console.log(data)
+  console.log("in usageSteps function")
+  return inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'usageStep',
+        message: '(Type EXIT if finished with usage instructions) Next Step:',
+        validate: usagenput => {
+          if (usagenput) {
+            return true;
+          } else {
+            console.log('Please provide the next usage step!');
+            return false;
+          }
+        }
       },
+    ])
+    .then(usageStepData => {
+      if (usageStepData.usageStep != 'EXIT') {
+        data.usageSteps.push(usageStepData)
+        return usageSteps(data)
+      } else {
+        return data;
+      }
+    })
+}
+
+// Final function for building the user input data object
+const promptEnd = data => {
+
+  return inquirer
+    .prompt([
       {
         type: 'list',
         name: 'contribute',
@@ -121,7 +212,7 @@ Create a README
         message: 'Provide instructions for testing:',
         validate: testInput => {
           if (testInput) {
-            return true;
+            return true
           } else {
             console.log('Please provide instructions for testing!');
             return false;
@@ -160,14 +251,34 @@ Create a README
           }
         }
       }
-    ]);
-};
+    ])
+    .then(finalQuestions => {
+      userInputData = { ...data, ...finalQuestions }
+      console.log(userInputData);
+      return userInputData;
+    })
+}
+//===========================================================================================
 
 // Function call to initialize app
-readmePrompts()
-  .then(data => {
-    return generateReadme(data);
+// Application data is managed via a promise chain
+promptStart()
+  .then(inquirerData => {
+    return installSteps(inquirerData);
   })
+  .then(inquirerData => {
+    return usageQuestion(inquirerData);
+  })
+  .then(inquirerData => {
+    return usageSteps(inquirerData);
+  })
+  .then(inquirerData => {
+    return promptEnd(inquirerData);
+  }) // All data is captured from user and sent to the markdown-template module for generation
+  .then(userInputData => {
+    console.log(userInputData);
+    return generateReadme(userInputData);
+  }) // Markdown is then written a local .md file
   .then(readmeInfo => {
     return writeToFile(readmeInfo);
   })
