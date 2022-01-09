@@ -2,29 +2,29 @@
 const renderLicenseBadge = (data) => {
   switch (data.license) {
     case 'Apache License 2.0':
-      return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+      return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)';
     case 'Boost Software License 1.0':
-      return '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
+      return '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg?style=for-the-badge)](https://www.boost.org/LICENSE_1_0.txt)';
     case 'GNU AGPLv3':
-      return '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)';
+      return '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)';
     case 'GNU GPLv3':
-      return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+      return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)';
     case 'GNU LGPLv3':
-      return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+      return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)';
     case 'MIT License':
-      return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+      return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)';
     case 'Mozilla Public License 2.0':
-      return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+      return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)';
   }
-}
+};
 
 // Generates link text for License section of README from the license badge markdown string 
 const renderLicenseLink = (data) => {
-  return renderLicenseBadge(data).split(")]")[1].replace(')','').replace('(','');
-}
+  return renderLicenseBadge(data).split(")]")[1].replace(')', '').replace('(', '');
+};
 
 // Generate the License section of the README (unless NO LICENSE was selected)
-const renderLicenseSection = (data) => { 
+const renderLicenseSection = (data) => {
   if (data.license === 'NO LICENSE') {
     return '';
   }
@@ -34,6 +34,43 @@ const renderLicenseSection = (data) => {
   Distributed under ${data.license}. See [License Documentation](${renderLicenseLink(data)}) for more information.
 
   <p align="right">(<a href="#top">back to top</a>)</p>
+
+  `
+};
+
+// Generate Github links & badges if README has an associated repository
+const githubElements = (data) => {
+  if (data.repo) {
+    return `
+  [![Contributors](https://img.shields.io/github/contributors/${data.github}/${data.repo}.svg?style=for-the-badge)](https://github.com/${data.github}/${data.repo}/graphs/contributors)
+  [![Forks](https://img.shields.io/github/forks/${data.github}/${data.repo}.svg?style=for-the-badge)](https://github.com/${data.github}/${data.repo}/network/members)
+  [![Stars](https://img.shields.io/github/stars/${data.github}/${data.repo}.svg?style=for-the-badge)](https://github.com/${data.github}/${data.repo}/stargazers)
+  [![Issues](https://img.shields.io/github/issues/${data.github}/${data.repo}.svg?style=for-the-badge)](https://github.com/${data.github}/${data.repo}/issues)
+  ${renderLicenseBadge(data)}
+  <br />
+  <br />
+
+  <h1 align="center">${data.title}</h1>
+
+  <p align="center">
+    <a href="https://github.com/${data.github}/${data.repo}"><strong>Project Documents »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/${data.github}/${data.repo}/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/${data.github}/${data.repo}/issues">Request Feature</a>
+  </p>
+
+ 
+    `
+  }
+  return `
+  ${renderLicenseBadge(data)}
+  <br />
+  <br />
+
+  <h1 align="center">${data.title}</h1>
+
 
   `
 }
@@ -48,6 +85,7 @@ const contCov = (data) => {
   <details>
   <summary>Code of Conduct</summary>
   <br/>
+
   # Contributor Covenant Code of Conduct
 
   ## Our Pledge
@@ -189,25 +227,10 @@ const contCov = (data) => {
 
 // Generate the markdown text for the README via template literal 
 const generateMarkdown = (data) => {
-  console.log(data);
   return `
   <div id="top"></div>
   
-  ${renderLicenseBadge(data)}
-  
-
-  <h1 align="center">${data.title}</h1>
-
-  <p align="center">
-    <a href="https://github.com/${data.github}/${data.repo}"><strong>Project Documents »</strong></a>
-    <br />
-    <br />
-    <a href="">View Demonstration</a>
-    ·
-    <a href="https://github.com/${data.github}/${data.repo}/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/${data.github}/${data.repo}/issues">Request Feature</a>
-  </p>
+  ${githubElements(data)}
 
  
   <details>
@@ -271,6 +294,6 @@ const generateMarkdown = (data) => {
   <p align="right">(<a href="#top">back to top</a>)</p>
 
   `;
-}
+};
 
 module.exports = generateMarkdown;
