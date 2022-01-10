@@ -16,6 +16,8 @@
     <a href="https://github.com/SirTedDanson/readme-generator"><strong>Project Documents »</strong></a>
     <br />
     <br />
+    <a href="https://drive.google.com/file/d/12BXeInzxP33QfIrSSvpReok7dRtGOZeJ/view">View Demo</a>
+    ·
     <a href="https://github.com/SirTedDanson/readme-generator/issues">Report Bug</a>
     ·
     <a href="https://github.com/SirTedDanson/readme-generator/issues">Request Feature</a>
@@ -49,19 +51,20 @@
 
   ## Installation
 
-  - Download files from repository
-  - Open directory in VSCode
-  - `npm init`
-  - `npm install inquirer`
+  - Fork and clone files from repository
+  - Open VSCode in root directory  
+  - run `npm init` in terminal  
+  - run `npm install inquirer` in terminal
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
   ## Usage 
 
-  - Open directory in VSCode
-  - `node index` to initialize the application
-  - Provide detailed answers to the prompts for README generation
+  - Open VSCode in root directory
+  - Type `node index.js` in the terminal to initialize the application  
+  - Proivde detailed answers to the prompts for readme generation
+  - README.md is then generated in the dist/ folder
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -226,7 +229,7 @@
 
   ## Tests
 
-  - Building application tests
+  - Building application tests. View [Demonstration Video](https://drive.google.com/file/d/12BXeInzxP33QfIrSSvpReok7dRtGOZeJ/view)
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
