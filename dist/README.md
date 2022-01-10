@@ -2,29 +2,29 @@
   <div id="top"></div>
   
   
-  [![Contributors](https://img.shields.io/github/contributors/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/graphs/contributors)
-  [![Forks](https://img.shields.io/github/forks/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/network/members)
-  [![Stars](https://img.shields.io/github/stars/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/stargazers)
-  [![Issues](https://img.shields.io/github/issues/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/issues)
-  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
+  [![Contributors](https://img.shields.io/github/contributors/sirteddanson/readme-generator.svg?style=for-the-badge)](https://github.com/sirteddanson/readme-generator/graphs/contributors)
+  [![Forks](https://img.shields.io/github/forks/sirteddanson/readme-generator.svg?style=for-the-badge)](https://github.com/sirteddanson/readme-generator/network/members)
+  [![Stars](https://img.shields.io/github/stars/sirteddanson/readme-generator.svg?style=for-the-badge)](https://github.com/sirteddanson/readme-generator/stargazers)
+  [![Issues](https://img.shields.io/github/issues/sirteddanson/readme-generator.svg?style=for-the-badge)](https://github.com/sirteddanson/readme-generator/issues)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
   <br />
   <br />
 
-  <h1 align="center">README Generator</h1>
+  <h1 align="center">README generator for Github</h1>
 
   <p align="center">
-    <a href="https://github.com/SirTedDanson/readme-generator"><strong>Project Documents »</strong></a>
+    <a href="https://github.com/sirteddanson/readme-generator"><strong>Project Documents »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/SirTedDanson/readme-generator/issues">Report Bug</a>
+    <a href="https://github.com/sirteddanson/readme-generator/issues">Report Bug</a>
     ·
-    <a href="https://github.com/SirTedDanson/readme-generator/issues">Request Feature</a>
+    <a href="https://github.com/sirteddanson/readme-generator/issues">Request Feature</a>
   </p>
 
- 
     
-
+    
  
+
   <details>
     <summary>Table of Contents</summary>
     <ol>
@@ -42,15 +42,15 @@
 
   ## Description 
 
-  This application creates a quality README file specifically for Github projects. This application generates a README file via user prompts in the node.js runtime environment. Upon running the application a user is presented with prompts asking for the necessary information needed for a quality README file. After answering the prompts a README markdown file is then automatically generated and style!
+  This application generates a README file via user prompts in the node.js runtime environment. Upon running the application a user is presented with prompts asking for the necessary information needed for a quality README file. After answering the prompts a README markdown file is then automatically generated and styled! This application is best suited for README.md files associated with Github repositories.
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
   ## Installation
 
-  - Fork and clone files from the repository
-  - Open directory in VSCode  
+  - Fork and clone necessary files from this Github repository 
+  - Initiate a terminal in the root directory  
   - run `npm init`  
   - run `npm install inquirer`
 
@@ -59,9 +59,9 @@
 
   ## Usage 
 
-  - Open directory in VSCode
-  - Type `node index` in the terminal to initialize the application  
-  - Provide detailed answers to the prompts for readme generation
+  - Initiate terminal in the root directory
+  - Type `node index` to initialize the application  
+  - Provide detailed answers to the prompts for README generation
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -69,7 +69,7 @@
   
   ## License 
 
-  Distributed under Apache License 2.0. See [License Documentation](https://opensource.org/licenses/Apache-2.0) for more information.
+  Distributed under MIT License. See [License Documentation](https://opensource.org/licenses/MIT) for more information.
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -226,7 +226,7 @@
 
   ## Tests
 
-  Building tests
+  Building test suite
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -235,7 +235,7 @@
 
   For any questions or concerns regarding this project please contact:
 
-  Matthew Dwyer - https://github.com/SirTedDanson - KnowledgeMED@gmail.com
+  Matthew Dwyer - https://github.com/sirteddanson - KnowledgeMED@gmail.com
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
