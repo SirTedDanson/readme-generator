@@ -2,14 +2,27 @@
   <div id="top"></div>
   
   
+  [![Contributors](https://img.shields.io/github/contributors/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/graphs/contributors)
+  [![Forks](https://img.shields.io/github/forks/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/network/members)
+  [![Stars](https://img.shields.io/github/stars/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/stargazers)
+  [![Issues](https://img.shields.io/github/issues/SirTedDanson/readme-generator.svg?style=for-the-badge)](https://github.com/SirTedDanson/readme-generator/issues)
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
   <br />
   <br />
 
-  <h1 align="center">undefined</h1>
+  <h1 align="center">README Generator</h1>
 
+  <p align="center">
+    <a href="https://github.com/SirTedDanson/readme-generator"><strong>Project Documents »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/SirTedDanson/readme-generator/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/SirTedDanson/readme-generator/issues">Request Feature</a>
+  </p>
 
-  
+ 
+    
 
  
   <details>
@@ -29,21 +42,26 @@
 
   ## Description 
 
-  undefined
+  This application creates a quality README file specifically for Github projects. This application generates a README file via user prompts in the node.js runtime environment. Upon running the application a user is presented with prompts asking for the necessary information needed for a quality README file. After answering the prompts a README markdown file is then automatically generated and style!
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
   ## Installation
 
-  undefined
+  - Fork and clone files from the repository
+  - Open directory in VSCode  
+  - run `npm init`  
+  - run `npm install inquirer`
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
   ## Usage 
 
-  undefined 
+  - Open directory in VSCode
+  - Type `node index` in the terminal to initialize the application  
+  - Provide detailed answers to the prompts for readme generation
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -208,7 +226,7 @@
 
   ## Tests
 
-  BUILDING TESTING FRAMEWORK
+  Building tests
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -217,7 +235,7 @@
 
   For any questions or concerns regarding this project please contact:
 
-  Matthew Dwyer - https://github.com/undefined - KnowledgeMED@gmail.com
+  Matthew Dwyer - https://github.com/SirTedDanson - KnowledgeMED@gmail.com
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 

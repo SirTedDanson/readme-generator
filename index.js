@@ -89,7 +89,7 @@ const installSteps = (data) => {
       {
         type: 'input',
         name: 'installStep',
-        message: '(Type EXIT if finished with insallation instructions) Next Step:',
+        message: "(Type 'EXIT' if finished with insallation instructions) Next Step:",
         validate: installStepInput => {
           if (installStepInput) {
             return true;
@@ -105,8 +105,7 @@ const installSteps = (data) => {
         data.installSteps = [];
       }
       if (installStepData.installStep != 'EXIT') {
-        data.installSteps.push(installStepData)
-        console.log(data);
+        data.installSteps.push('- ' + installStepData.installStep)
         return installSteps(data)
       } else {
         return data;
@@ -116,8 +115,6 @@ const installSteps = (data) => {
 
 // Bridge question between building two arrays with steps has its own function
 const usageQuestion = (data) => {
-  console.log(data)
-  console.log('inside usageQuestion')
   return inquirer
     .prompt([
       {
@@ -136,7 +133,6 @@ const usageQuestion = (data) => {
     ])
     .then(usageList => {
       newData = { ...data, ...usageList }
-      console.log(newData);
       return newData;
     })
 };
@@ -147,14 +143,12 @@ const usageSteps = data => {
   if (!data.usageSteps) {
     data.usageSteps = [];
   }
-  console.log(data)
-  console.log("in usageSteps function")
   return inquirer
     .prompt([
       {
         type: 'input',
         name: 'usageStep',
-        message: '(Type EXIT if finished with usage instructions) Next Step:',
+        message: "(Type 'EXIT' if finished with usage instructions) Next Step:",
         validate: usagenput => {
           if (usagenput) {
             return true;
@@ -167,7 +161,7 @@ const usageSteps = data => {
     ])
     .then(usageStepData => {
       if (usageStepData.usageStep != 'EXIT') {
-        data.usageSteps.push(usageStepData)
+        data.usageSteps.push('- ' + usageStepData.usageStep)
         return usageSteps(data)
       } else {
         return data;
@@ -180,6 +174,12 @@ const promptEnd = data => {
 
   return inquirer
     .prompt([
+      {
+        type: 'list',
+        name: 'license',
+        message: 'Choose a license:',
+        choices: ['NO LICENSE', 'Apache License 2.0', 'Boost Software License 1.0', 'GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'MIT License', 'Mozilla Public License 2.0']
+      },
       {
         type: 'list',
         name: 'contribute',
@@ -220,12 +220,6 @@ const promptEnd = data => {
         }
       },
       {
-        type: 'list',
-        name: 'license',
-        message: 'Choose a license:',
-        choices: ['NO LICENSE', 'Apache License 2.0', 'Boost Software License 1.0', 'GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'MIT License', 'Mozilla Public License 2.0']
-      },
-      {
         type: 'input',
         name: 'author',
         message: 'Who is the primary contact for this project?',
@@ -254,7 +248,6 @@ const promptEnd = data => {
     ])
     .then(finalQuestions => {
       userInputData = { ...data, ...finalQuestions }
-      console.log(userInputData);
       return userInputData;
     })
 }
@@ -278,7 +271,7 @@ promptStart()
   .then(userInputData => {
     console.log(userInputData);
     return generateReadme(userInputData);
-  }) // Markdown is then written a local .md file
+  }) // Markdown is then written to a local .md file
   .then(readmeInfo => {
     return writeToFile(readmeInfo);
   })

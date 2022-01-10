@@ -15,7 +15,9 @@ const renderLicenseBadge = (data) => {
       return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)';
     case 'Mozilla Public License 2.0':
       return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)';
-  }
+    case 'NO LICENSE':
+      return '';
+    };
 };
 
 // Generates link text for License section of README from the license badge markdown string 
@@ -73,6 +75,24 @@ const githubElements = (data) => {
 
 
   `
+}
+
+// Function for generating installation steps in template literal
+const installationSteps = (data) => {
+  if (data.installSteps == []) {
+    return '';
+  } else {
+    return data.installSteps.join(`  \n  `);
+  }
+}
+
+// Function for generating usage steps in template literal
+const usageSteps = (data) => {
+  if (data.usageSteps == []) {
+    return '';
+  } else {
+    return data.usageSteps.join(`  \n  `);
+  }
 }
 
 // Function for generating the Contributor Covenant Code of Conduct
@@ -257,14 +277,16 @@ const generateMarkdown = (data) => {
 
   ## Installation
 
-  ${data.installation}
+  - ${data.installation}
+  ${installationSteps(data)}
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
   ## Usage 
 
-  ${data.usage} 
+  - ${data.usage}
+  ${usageSteps(data)}
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
