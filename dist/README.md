@@ -8,7 +8,7 @@
   [![Issues](https://img.shields.io/github/issues/sirteddanson/readme-generator.svg?style=for-the-badge)](https://github.com/sirteddanson/readme-generator/issues)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
   <br />
-  <br /> 
+  <br />
 
   <h1 align="center">readme generator demo</h1>
 
@@ -44,24 +44,24 @@
 
   This application generates a README file via user prompts in the node.js runtime environment. Upon running the application, a user is presented with prompts asking for the necessary information needed for a quality README file. After answering the prompts, a README markdown file is then automatically generated and styled! This application is best suited for README.md files associated with Github repositories.
 
-  <p align="right">(<a href="#top">back to top</a>)</p>
+  <p align="right">(<a  href="#top">back to top</a>)</p>
 
 
   ## Installation
 
   - Fork and clone files from repository
-  - Open VSCode in root directory  
-  - run `npm init` in terminal  
-  - run `npm install inquirer` in terminal
+  - Open VSCode in the root directory  
+  - run `npm init` in the terminal  
+  - run `npm install inquirer` in the terminal
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 
   ## Usage 
 
-  - Open VSCode in root directory
-  - Type `node index.js` in the terminal to initialize the application  
-  - Proivde detailed answers to the prompts for readme generation
+  - Open VSCode in the root directory
+  - Type `node index.js` in the terminal to initiliaze the application  
+  - Provide detailed answers to the prompts for readme generation
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -226,7 +226,7 @@
 
   ## Tests
 
-  Building test suite
+  Building test suite, see demo video
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -235,7 +235,7 @@
 
   For any questions or concerns regarding this project please contact:
 
-  Matthew Dwyer - https://github.com/sirteddanson - KnowledgeMED@gmail.com
+  Matthew Dwyewr - https://github.com/sirteddanson - KnowledgeMED@gmail.com
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 

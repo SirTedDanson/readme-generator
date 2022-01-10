@@ -16,7 +16,7 @@
     <a href="https://github.com/SirTedDanson/readme-generator"><strong>Project Documents »</strong></a>
     <br />
     <br />
-    <a href="https://drive.google.com/file/d/12BXeInzxP33QfIrSSvpReok7dRtGOZeJ/view">View Demo</a>
+    <a href="https://watch.screencastify.com/v/7SAHHvTTdtmEqf3tBI7H">View Demo</a>
     ·
     <a href="https://github.com/SirTedDanson/readme-generator/issues">Report Bug</a>
     ·
@@ -48,6 +48,12 @@
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
+  ## Screenshot
+
+  ![Application Screenshot](./images/application-screenshot.PNG)
+  ![Application GIF](./images/demo-gif.gif)
+  
+---
 
   ## Installation
 
@@ -229,7 +235,7 @@
 
   ## Tests
 
-  - Building application tests. View [Demonstration Video](https://drive.google.com/file/d/12BXeInzxP33QfIrSSvpReok7dRtGOZeJ/view)
+  - Building application tests. View [Demonstration Video](https://watch.screencastify.com/v/7SAHHvTTdtmEqf3tBI7H)
 
   <p align="right">(<a href="#top">back to top</a>)</p>
 
